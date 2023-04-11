@@ -37,3 +37,146 @@
     transform: translateY(0px);
   }
 }
+
+body {
+  font-family: "Open Sans", sans-serif; }
+
+h1, h2, h3 {
+  font-family: "Lobster", cursive; }
+
+h2 {
+  color: #3046C5; }
+
+header h2 {
+  color: #CEC8FF; }
+
+.site-footer {
+  background-image: linear-gradient(#CEC8FF, white);
+  padding: 20px 0; }
+
+.jumbotron {
+  margin: 0;
+  padding: 30px;
+  background-image: linear-gradient(to right, #5637dd, #3046C5, #60106b);
+  color: white; }
+
+.row-content {
+  padding: 50px 0;
+  border-bottom: 1px ridge;
+  min-height: 200px; }
+
+.navbar {
+  background-color: #901CAD;
+ }
+
+.img-fluid {
+  max-width: 100%;
+  height: auto; }
+
+.tab-content {
+  border: 1px solid #DDD;
+  border-top: none;
+  padding: 10px; }
+
+.carousel-caption {
+  background-color: rgba(0, 0, 0, 0.5); }
+
+.carousel {
+  border: solid #5637dd; }
+
+#carouselButton {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  z-index: 100; }
+
+
+.nav-center {
+  text-align: center; }
+  .nav-center ul.navbar-nav {
+    display: inline-block; }
+
+#searchForm {
+  margin-top: 50px;
+  padding: 0 20px;
+}
+.form-control {
+  width: 200px;
+  display: inline-block;
+  padding-left: 10px;
+}
+
+.form-row {
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.form-group {
+  margin-left: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-right: 10px;
+  margin-top: 10px;
+}
+
+.form-group:last-child {
+  margin-right: 0;
+}
+
+.form-row select:first-child {
+  margin-right: 10px;
+}
+
+.form-row button {
+  margin-left: 10px;
+}
+
+#socialNetworks,
+.btn-clear {
+  margin-right: 10px; /* add this line to create some space on the right side */
+}
+    
+
+#searchResults {
+  margin-top: 50px;
+  border-collapse: collapse;
+  width: 100%;
+  max-width: 100%;
+  border: 1px solid #ddd;
+  box-sizing: border-box;
+}
+
+#searchResults th {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: center;
+}
+
+#searchResults td {
+  border: 1px solid #ddd;
+  padding: 20px; /* Adjust the padding to the desired value */
+  text-align: center;
+}
+
+#searchResultsContainer h3 {
+  text-align: center;
+}
+
+#searchResultsContainer {
+  overflow-x: auto;
+  width: 100%;
+  margin: 0 auto;
+}
+
+
+
+
+
+
+
