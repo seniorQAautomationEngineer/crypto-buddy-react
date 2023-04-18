@@ -38,3 +38,21 @@
   }
 }
 
+/* Add this CSS to your stylesheet or style block */
+.form-horizontal .form-group {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.form-horizontal .form-group .form-label {
+  flex: 0 0 120px; /* Adjust the width of the label as needed */
+  margin-right: 10px; /* Add margin between label and select */
+}
+
+.form-horizontal .form-group .form-select {
+  flex: 1; /* Use all available space for select */
+}
+.social-label {
+  margin-top: 1rem; /* or adjust the margin value as needed */
+}

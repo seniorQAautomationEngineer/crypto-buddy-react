@@ -75,38 +75,6 @@ header h2 {
   margin-top: 50px;
   padding: 0 20px;
 }
-.form-control {
-  width: 200px;
-  display: inline-block;
-  padding-left: 10px;
-}
-
-.form-row {
-  margin-left: auto;
-  margin-right: auto;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-}
-
-.form-group {
-  margin-left: auto;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-  margin-right: 10px;
-  margin-top: 10px;
-}
-
-.form-group:last-child {
-  margin-right: 0;
-}
-
-.form-row select:first-child {
-  margin-right: 10px;
-}
 
 .form-row button {
   margin-left: 10px;

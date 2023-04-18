@@ -1,0 +1,64 @@
+{
+    "coins": [
+      {
+        "name": "Bitcoin",
+        "description": "Bitcoin groups",
+        "groups": [
+          {
+            "source": "Website",
+            "type": "Official",
+            "description": "Bitcoin. Official website.",
+            "link": "https://www.bitcoin.com/"
+          },
+          {
+            "source": "Website",
+            "type": "Popular",
+            "description": "Bitcoin.Org.",
+            "link": "https://bitcoin.org/en/"
+          },
+          {
+            "source": "Telegram",
+            "type": "Official",
+            "description": "Bitcoin. Telegram. Official.",
+            "link": "https://t.me/www_Bitcoin_com"
+          },
+          {
+            "source": "Youtube",
+            "type": "Official",
+            "description": "Bitcoin. Youtube. Official.",
+            "link": "https://www.youtube.com/channel/UCetxkZolEBHX47BqtZktbkg"
+          },
+          {
+            "source": "Instagram",
+            "type": "Official",
+            "description": "Bitcoin. Instagram. Official.",
+            "link": "https://www.instagram.com/bitcoin.com_official/"
+          },
+          {
+            "source": "Twitter",
+            "type": "Official",
+            "description": "Bitcoin. Twitter. Official.",
+            "link": "https://twitter.com/bitcoincom"
+          },
+          {
+            "source": "Facebook",
+            "type": "official",
+            "description": "Bitcoin. Facebook. Official.",
+            "link": "https://www.facebook.com/buy.bitcoin.news"
+          },
+          {
+            "source": "Facebook",
+            "type": "Popular",
+            "description": "Bitcoin Magazine",
+            "link": "https://www.facebook.com/BitcoinMagazine/"
+          },
+          {
+            "source": "Facebook",
+            "type": "Popular",
+            "description": "BITCOIN",
+            "link": "https://www.facebook.com/groups/1558952377726927/"
+          }
+        ]
+      }
+    ]
+  }

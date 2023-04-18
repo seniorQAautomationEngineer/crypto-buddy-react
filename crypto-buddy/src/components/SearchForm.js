@@ -1,37 +1,40 @@
 import React, { Component } from "react";
-import { Form, Button, Table } from "react-bootstrap";
+import { Form, Button, Table, Row, Col } from "react-bootstrap";
 import cryptoData from "../app/json/cryptoData.json";
+import searchResultsData from "../app/json/searchResults.json";
+//import { cryptoData } from "../app/data/dropDownValues";
 
 class SearchForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      coins: [],
-      countries: [],
-      socialNetworks: [],
-      types: [],
+      coins: cryptoData.coins,
+      countries: cryptoData.countries,
+      // socialNetworks: [],
+      // types: [],
       selectedCoin: "",
       selectedCountry: "",
       selectedSocialNetwork: "",
       selectedCryptoType: "",
-      searchResults: [],
+      searchResults: searchResultsData,
     };
   }
 
-  componentDidMount() {
-    // Fetch data from JSON files and update state
-    fetch(cryptoData)
-      .then((response) => response.json())
-      .then((data) => {
-        this.setState({
-          coins: data.coins,
-          countries: data.countries,
-          socialNetworks: data.socialNetworks,
-          types: data.types,
-        });
-      })
-      .catch((error) => console.error(error));
-  }
+  // componentDidMount() {
+  //   // Fetch data from JSON file and update state
+  //   console.log(cryptoData);
+  //   fetch(cryptoData)
+  //     .then((response) => response.json())
+  //     .then((data) => {
+  //       this.setState({
+  //         coins: data.coins,
+  //         countries: data.countries,
+  //         socialNetworks: data.socialNetworks,
+  //         types: data.types,
+  //       });
+  //     })
+  //     .catch((error) => console.error(error));
+  // }
 
   handleSubmit = (event) => {
     event.preventDefault();
@@ -79,10 +82,10 @@ class SearchForm extends Component {
 
   render() {
     const {
-      coins,
-      countries,
-      socialNetworks,
-      types,
+       coins,
+       countries,
+      // socialNetworks,
+      // types,
       selectedCoin,
       selectedCountry,
       selectedSocialNetwork,
@@ -92,84 +95,86 @@ class SearchForm extends Component {
 
     return (
       <div>
-        <Form onSubmit={this.handleSubmit} className="mb-4">
-          <Form.Group controlId="coinList">
-            <Form.Label>Coin</Form.Label>
-            <Form.Control
-              as="select"
-              value={selectedCoin}
-              onChange={(event) =>
-                this.setState({ selectedCoin: event.target.value })
-              }
-            >
-              <option value="">Select a coin</option>
-              {coins.map((coin) => (
-                <option key={coin.name} value={coin.name}>
-                  {coin.name}
-                </option>
-              ))}
-            </Form.Control>
-          </Form.Group>
-
-          <Form.Group controlId="countryList">
-            <Form.Label>Country</Form.Label>
-            <Form.Control
-              as="select"
-              value={selectedCountry}
-              onChange={(event) =>
-                this.setState({ selectedCountry: event.target.value })
-              }
-            >
-              <option value="">Select a country</option>
-              {countries.map((country) => (
-                <option key={country.name} value={country.name}>
-                  {country.name}
-                </option>
-              ))}
-            </Form.Control>
-          </Form.Group>
-
-          <Form.Group controlId="socialNetworks">
-            <Form.Label>Social Network</Form.Label>
-            <Form.Control
-              as="select"
-              value={selectedSocialNetwork}
-              onChange={(event) =>
-                this.setState({ selectedSocialNetwork: event.target.value })
-              }
-            >
-              <option value="">Select a social network</option>
-              {socialNetworks.map((socialNetwork) => (
-                <option key={socialNetwork.name} value={socialNetwork.name}>
-                  {socialNetwork.name}
-                </option>
-              ))}
-            </Form.Control>
-          </Form.Group>
-          <Form.Group controlId="cryptoTypeList">
-            <Form.Label>Crypto Type</Form.Label>
-            <Form.Control
-              as="select"
-              value={selectedCryptoType}
-              onChange={(event) =>
-                this.setState({ selectedCryptoType: event.target.value })
-              }
-            >
-              <option value="">Select a crypto type</option>
-              {types.map((type) => (
-                <option key={type.name} value={type.name}>
-                  {type.name}
-                </option>
-              ))}
-            </Form.Control>
-          </Form.Group>
-
-          <Button type="submit" variant="primary" className="mr-2">
-            Search
-          </Button>
-          <Button variant="secondary" onClick={this.handleClear}>
-            Clear
-          </Button>
+        <Form
+          onSubmit={this.handleSubmit}
+          className="mb-4 mb-4 form-horizontal"
+        >
+          <Row>
+            <Col md={2}>
+              <Form.Label>Coin</Form.Label>
+              <Form.Select
+                as="select"
+                value={selectedCoin}
+                onChange={(event) =>
+                  this.setState({ selectedCoin: event.target.value })
+                }
+              >
+                <option value="">Select a coin</option>
+                {coins.map((coin) => (
+                  <option key={coin.name} value={coin.name}>
+                    {coin.name}
+                  </option>
+                ))}
+              </Form.Select>
+            </Col>
+            <Col md={2}>
+              <Form.Label>Country</Form.Label>
+              <Form.Select
+                as="select"
+                value={selectedCountry}
+                onChange={(event) =>
+                  this.setState({ selectedCountry: event.target.value })
+                }
+              >
+                <option value="">Select a country</option>
+                {countries.map((country) => (
+                  <option key={country.name} value={country.name}>
+                    {country.name}
+                  </option>
+                ))}
+              </Form.Select>
+            </Col>
+            <Col md={2}>
+              <Form.Label className="social-label">Social Network</Form.Label>
+              <Form.Select
+                as="select"
+                value={selectedSocialNetwork}
+                onChange={(event) =>
+                  this.setState({ selectedSocialNetwork: event.target.value })
+                }
+              >
+                <option value="">Select group</option>
+                <option value="">Website</option>
+                <option value="">Telegran</option>
+                <option value="">Facebook</option>
+              </Form.Select>
+            </Col>
+            <Col md={2}>
+              <Form.Label>Crypto Type</Form.Label>
+              <Form.Select
+                as="select"
+                value={selectedCryptoType}
+                onChange={(event) =>
+                  this.setState({ selectedCryptoType: event.target.value })
+                }
+              >
+                <option value="">Select type</option>
+                <option value="">Official</option>
+                <option value="">Popular</option>
+               
+              </Form.Select>
+            </Col>
+            <Col md={1}>
+              <Button type="submit" variant="primary" className="mr-2">
+                Search
+              </Button>
+            </Col>
+            <Col md={1}>
+              <Button variant="secondary" onClick={this.handleClear}>
+                Clear
+              </Button>
+            </Col>
+          </Row>
         </Form>
 
         {searchResults.length > 0 && (
