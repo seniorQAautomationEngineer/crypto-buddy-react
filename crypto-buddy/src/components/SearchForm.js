@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { Form, Button, Table, Row, Col } from "react-bootstrap";
 import cryptoData from "../app/json/cryptoData.json";
 import searchResultsData from "../app/json/searchResults.json";
-//import { cryptoData } from "../app/data/dropDownValues";
 
 class SearchForm extends Component {
   constructor(props) {
@@ -10,8 +9,6 @@ class SearchForm extends Component {
     this.state = {
       coins: cryptoData.coins,
       countries: cryptoData.countries,
-      // socialNetworks: [],
-      // types: [],
       selectedCoin: "",
       selectedCountry: "",
       selectedSocialNetwork: "",
@@ -19,22 +16,6 @@ class SearchForm extends Component {
       searchResults: searchResultsData,
     };
   }
-
-  // componentDidMount() {
-  //   // Fetch data from JSON file and update state
-  //   console.log(cryptoData);
-  //   fetch(cryptoData)
-  //     .then((response) => response.json())
-  //     .then((data) => {
-  //       this.setState({
-  //         coins: data.coins,
-  //         countries: data.countries,
-  //         socialNetworks: data.socialNetworks,
-  //         types: data.types,
-  //       });
-  //     })
-  //     .catch((error) => console.error(error));
-  // }
 
   handleSubmit = (event) => {
     event.preventDefault();
@@ -48,25 +29,21 @@ class SearchForm extends Component {
     } = this.state;
 
     // Fetch data from JSON file
-    fetch("./app/json/searchResults.json")
-      .then((response) => response.json())
-      .then((data) => {
-        // Filter data based on selected values
-        const filteredData = data.coins.filter((item) => {
-          return (
-            item.name === selectedCoin &&
-            item.groups.some(
-              (group) =>
-                group.source === selectedSocialNetwork &&
-                group.type === selectedCryptoType
-            )
-          );
-        });
 
-        // Update state with filtered data
-        this.setState({ searchResults: filteredData });
-      })
-      .catch((error) => console.error(error));
+    // Filter data based on selected values
+    const filteredData = this.state.searchResults.coins.filter((item) => {
+      return (
+        item.name === selectedCoin &&
+        item.groups.some(
+          (group) =>
+            group.source === selectedSocialNetwork &&
+            group.type === selectedCryptoType
+        )
+      );
+    });
+
+    // Update state with filtered data
+    this.setState({ searchResults: filteredData });
   };
 
   handleClear = () => {
@@ -76,16 +53,11 @@ class SearchForm extends Component {
       selectedCountry: "",
       selectedSocialNetwork: "",
       selectedCryptoType: "",
-      searchResults: [],
     });
   };
 
   render() {
     const {
-       coins,
-       countries,
-      // socialNetworks,
-      // types,
       selectedCoin,
       selectedCountry,
       selectedSocialNetwork,
@@ -110,7 +82,7 @@ class SearchForm extends Component {
                 }
               >
                 <option value="">Select a coin</option>
-                {coins.map((coin) => (
+                {this.state.coins.map((coin) => (
                   <option key={coin.name} value={coin.name}>
                     {coin.name}
                   </option>
@@ -127,7 +99,7 @@ class SearchForm extends Component {
                 }
               >
                 <option value="">Select a country</option>
-                {countries.map((country) => (
+                {this.state.countries.map((country) => (
                   <option key={country.name} value={country.name}>
                     {country.name}
                   </option>
@@ -161,7 +133,6 @@ class SearchForm extends Component {
                 <option value="">Select type</option>
                 <option value="">Official</option>
                 <option value="">Popular</option>
-               
               </Form.Select>
             </Col>
             <Col md={1}>
